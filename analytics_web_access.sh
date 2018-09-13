@@ -1,7 +1,8 @@
 #!/bin/bash
 ALP_LOG=/var/log/nginx/access.log.alp
 DATE=`date +"%T"`
-OUTPUT=/var/log/web.txt
+SCRIPT_DIR=$(cd $(dirname $0);pwd)
+OUTPUT=$SCRIPT_DIR/data/web.txt
 
 
 echo -e "[ WEB LOG -- $DATE ]\\n" >> $OUTPUT.$DATE
