@@ -21,3 +21,5 @@ echo -e "\\n\\n" >> $OUTPUT.$DATE
 
 cat $OUTPUT.$DATE > $OUTPUT
 echo "" > $ALP_LOG
+
+exit 0
