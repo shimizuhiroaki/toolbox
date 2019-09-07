@@ -1,0 +1,23 @@
+[ DB LOG -- 18:58:58 ]
+
+[ Query Time ]
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows_sent=0.0 (0), Rows_examined=0.0 (0), 0users@0hosts
+  
+
+[ TOP Query Count ]
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows_sent=0.0 (0), Rows_examined=0.0 (0), 0users@0hosts
+  
+
+
+
+
+[ TOP Query AVG ]
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows_sent=0.0 (0), Rows_examined=0.0 (0), 0users@0hosts
+  
+
+
+
+
