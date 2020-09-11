@@ -1,5 +1,6 @@
 #!/bin/bash
 # https://note.com/ujisakura/n/n443807235887
+# echo noop > /sys/block/sda/queue/scheduler
 
 KERNEL_FILE="/etc/sysctl.conf"
 BACKUP_DATA="/etc/sysctl.data"
