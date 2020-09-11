@@ -1,14 +1,14 @@
 [mysqld]
 
 #skip_innodb_doublewrite
-innodb_additional_mem_pool_size = 16M
+#innodb_additional_mem_pool_size = 16M
 
 table_open_cache = 800
 tmp_table_size = 32M
 max_heap_table_size = 32M
 max_connections = 500
 max_connect_errors = 10
-key_buffer              = 64M
+key_buffer_size = 64M
 
 myisam_sort_buffer_size = 128M
 max_allowed_packet      = 64M
@@ -21,7 +21,7 @@ query_cache_limit       = 4M
 query_cache_size        = 32M
 
 
-innodb_buffer_pool_size =3072M
+innodb_buffer_pool_size =512M
 innodb_flush_log_at_trx_commit=2
 innodb_log_file_size = 10240M
 innodb_file_per_table = 1
