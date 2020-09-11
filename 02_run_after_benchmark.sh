@@ -4,7 +4,7 @@ PASS=
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 TARGET_WEB_FILE=$SCRIPT_DIR/program/data/web.txt
 TARGET_DB_FILE=$SCRIPT_DIR/program/data/db.txt
-TARGET_DIR=/var/www/akat.info/isucon/
+TARGET_DIR=/var/www/akat.info/isucon/htdocs
 
 function delete_data() {
         rm ${TARGET_WEB_FILE}
