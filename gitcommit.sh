@@ -8,7 +8,7 @@ fi
 
 COMMENT=$1
 
-git add *
+git add .
 git commit -m "$COMMENT"
 # git remote add origin https://github.com/shimizuhiroaki/toolbox.git
 git push -u origin master
