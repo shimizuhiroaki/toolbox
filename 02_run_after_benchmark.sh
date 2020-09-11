@@ -2,8 +2,8 @@ HOST=isucon.akat.info
 USER=isucon
 PASS=
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
-TARGET_WEB_FILE=$SCRIPT_DIR/data/web.txt
-TARGET_DB_FILE=$SCRIPT_DIR/data/db.txt
+TARGET_WEB_FILE=$SCRIPT_DIR/program/data/web.txt
+TARGET_DB_FILE=$SCRIPT_DIR/program/data/db.txt
 TARGET_DIR=/var/www/akat.info/isucon/
 
 function delete_data() {
