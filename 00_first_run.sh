@@ -1,7 +1,15 @@
 #!/bin/bash
 
 ### install needs ###
-apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils
+apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils vim
+
+### Vim ###
+if [ -e /etc/vim/vimrc.local ]; then
+    :
+else
+    cp vim/vimrc.local /etc/vim/
+    update-alternatives --config editor
+fi
 
 ### install alp ###
 cd /usr/local/src/
