@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### install needs ###
-apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils vim
+apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils vim telnet
 
 ### Vim ###
 if [ -e /etc/vim/vimrc.local ]; then
