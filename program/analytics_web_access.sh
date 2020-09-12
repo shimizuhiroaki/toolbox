@@ -4,8 +4,9 @@ DATE=`date +"%T"`
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 OUTPUT=$SCRIPT_DIR/data/web.txt
 
+HOSTNAME=`hostname`
 
-echo -e "[ WEB LOG -- $DATE ]\\n" >> $OUTPUT.$DATE
+echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $OUTPUT.$DATE
 
 echo -e "[ (1) TOP10 COUNT ]\\n" >> $OUTPUT.$DATE
 cat $ALP_LOG | alp ltsv --sort=count --reverse | head -n 13 >> $OUTPUT.$DATE

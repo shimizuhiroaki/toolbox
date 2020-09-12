@@ -4,8 +4,9 @@ DATE=`date +"%T"`
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 OUTPUT=$SCRIPT_DIR/data/db.txt
 
+HOSTNAME=`hostname`
 
-echo -e "[ DB LOG -- $DATE ]\\n" >> $OUTPUT.$DATE
+echo -e "[ DB LOG -- $DATE($HOSTNAME) ]\\n" >> $OUTPUT.$DATE
 
 echo -e "[(1) Top 5 Query Time ]\\n" >> $OUTPUT.$DATE
 /usr/bin/mysqldumpslow -s t $MYSQL_SLOW_LOG | head -n 15 >> $OUTPUT.$DATE
