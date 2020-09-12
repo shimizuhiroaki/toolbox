@@ -1,0 +1,59 @@
+[ DB LOG -- 06:37:42(team135-001) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 1208  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.6 (755), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE id = 'S' AND ST_Contains(ST_PolygonFromText('S'), ST_GeomFromText('S'))
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=17388.0 (17388), katukatu[katukatu]@localhost
+  select * from isuumo.chair
+
+Count: 3  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=402.7 (1208), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE latitude <= 'S' AND latitude >= 'S' AND longitude <= 'S' AND longitude >= 'S' ORDER BY popularity DESC, id ASC
+
+Count: 2  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) ORDER BY popularity DESC, id ASC LIMIT N
+
+Count: 2  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE door_height >= N AND door_height < N AND door_width >= N AND door_width < N ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+[(2) TOP 5 Query AVG ]
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=17388.0 (17388), katukatu[katukatu]@localhost
+  select * from isuumo.chair
+
+Count: 1  Time=0.04s (0s)  Lock=0.00s (0s)  Rows=1.0 (1), isucon[isucon]@localhost
+  SELECT COUNT(*) FROM estate WHERE features LIKE CONCAT('S', 'S', 'S')
+
+Count: 2  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) ORDER BY popularity DESC, id ASC LIMIT N
+
+Count: 1  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=20.0 (20), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE features LIKE CONCAT('S', 'S', 'S') ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 3  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=402.7 (1208), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE latitude <= 'S' AND latitude >= 'S' AND longitude <= 'S' AND longitude >= 'S' ORDER BY popularity DESC, id ASC
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 1208  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.6 (755), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE id = 'S' AND ST_Contains(ST_PolygonFromText('S'), ST_GeomFromText('S'))
+
+Count: 40  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=12.8 (511), 2users@localhost
+  #
+
+Count: 37  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  administrator command: Quit
+
+Count: 25  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=339.8 (8496), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 8  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=20.0 (160), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE stock > N ORDER BY price ASC, id ASC LIMIT N
+
+
+
+

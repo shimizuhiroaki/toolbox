@@ -1,0 +1,59 @@
+[ DB LOG -- 05:54:46(team135-001) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 255  Time=0.11s (28s)  Lock=0.00s (0s)  Rows=20.0 (5100), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE stock > N ORDER BY price ASC, id ASC LIMIT N
+
+Count: 255  Time=0.10s (25s)  Lock=0.00s (0s)  Rows=20.0 (5100), isucon[isucon]@localhost
+  SELECT * FROM estate ORDER BY rent ASC, id ASC LIMIT N
+
+Count: 198  Time=0.12s (24s)  Lock=0.00s (0s)  Rows=20.0 (3960), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) OR (door_width >= N AND door_height >= N) ORDER BY popularity DESC, id ASC LIMIT N
+
+Count: 197  Time=0.10s (20s)  Lock=0.00s (0s)  Rows=25.0 (4925), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE rent >= N AND rent < N ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 197  Time=0.07s (13s)  Lock=0.00s (0s)  Rows=1.0 (197), isucon[isucon]@localhost
+  SELECT COUNT(*) FROM estate WHERE rent >= N AND rent < N
+
+[(2) TOP 5 Query AVG ]
+
+Count: 1  Time=0.34s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE door_width >= N AND door_width < N AND features LIKE CONCAT('S', 'S', 'S') AND features LIKE CONCAT('S', 'S', 'S') AND features LIKE CONCAT('S', 'S', 'S') ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 1  Time=0.32s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE features LIKE CONCAT('S', 'S', 'S') AND features LIKE CONCAT('S', 'S', 'S') AND features LIKE CONCAT('S', 'S', 'S') AND stock > N ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 1  Time=0.32s (0s)  Lock=0.00s (0s)  Rows=24.0 (24), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE height >= N AND height < N AND width >= N AND features LIKE CONCAT('S', 'S', 'S') AND stock > N ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 2  Time=0.31s (0s)  Lock=0.00s (0s)  Rows=23.5 (47), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE features LIKE CONCAT('S', 'S', 'S') AND features LIKE CONCAT('S', 'S', 'S') AND stock > N ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+Count: 1  Time=0.30s (0s)  Lock=0.00s (0s)  Rows=29.0 (29), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE rent < N AND features LIKE CONCAT('S', 'S', 'S') ORDER BY popularity DESC, id ASC LIMIT N OFFSET N
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 3357  Time=0.00s (2s)  Lock=0.00s (0s)  Rows=0.7 (2470), isucon[isucon]@localhost
+  SELECT * FROM estate WHERE id = 'S' AND ST_Contains(ST_PolygonFromText('S'), ST_GeomFromText('S'))
+
+Count: 2241  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=16.0 (35895), 2users@localhost
+  #
+
+Count: 2174  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  administrator command: Quit
+
+Count: 500  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO chair VALUES('S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S')
+
+Count: 500  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO estate VALUES('S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S')
+
+
+
+

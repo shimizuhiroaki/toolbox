@@ -1,5 +1,5 @@
 #!/bin/bash
-MYSQL_SLOW_LOG=/var/log/mariadb/slow.log
+MYSQL_SLOW_LOG=/var/log/mysql/slow.log
 DATE=`date +"%T"`
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 OUTPUT=$SCRIPT_DIR/data/db.txt

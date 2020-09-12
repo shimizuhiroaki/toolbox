@@ -1,0 +1,59 @@
+[ DB LOG -- 05:32:27(team135-001) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 77  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=354.0 (27258), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 2  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM estate ORDER BY rent ASC, id ASC LIMIT N
+
+Count: 2  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE stock > N ORDER BY price ASC, id ASC LIMIT N
+
+Count: 3  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=1.0 (3), katukatu[katukatu]@[10.161.35.200]
+  SELECT COUNT(*) FROM `isuumo`.`estate`
+
+Count: 3  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=1.0 (3), katukatu[katukatu]@[10.161.35.200]
+  SELECT COUNT(*) FROM `isuumo`.`chair`
+
+[(2) TOP 5 Query AVG ]
+
+Count: 2  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM estate ORDER BY rent ASC, id ASC LIMIT N
+
+Count: 2  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=20.0 (40), isucon[isucon]@localhost
+  SELECT * FROM chair WHERE stock > N ORDER BY price ASC, id ASC LIMIT N
+
+Count: 3  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=1.0 (3), katukatu[katukatu]@[10.161.35.200]
+  SELECT COUNT(*) FROM `isuumo`.`estate`
+
+Count: 3  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=1.0 (3), katukatu[katukatu]@[10.161.35.200]
+  SELECT COUNT(*) FROM `isuumo`.`chair`
+
+Count: 4  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=1.0 (4), katukatu[katukatu]@[10.161.35.200]
+  SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin='S' AND `ROUTINE_TYPE`='S'
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 122  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=2.0 (246), 2users@2hosts
+  #
+
+Count: 100  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  administrator command: Quit
+
+Count: 78  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=5.0 (390), katukatu[katukatu]@[10.161.35.200]
+  SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+
+Count: 77  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=354.0 (27258), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 45  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), katukatu[katukatu]@[10.161.35.200]
+  SET lc_messages = 'S'
+
+
+
+

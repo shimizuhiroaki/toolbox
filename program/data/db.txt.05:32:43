@@ -1,0 +1,44 @@
+[ DB LOG -- 05:32:43(team135-001) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 4  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=354.0 (1416), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  # Time: N-N-12T05:N:N.413626Z
+  # User@Host: isucon[isucon] @ localhost [N.N.N.N]  Id:   N
+  # Query_time: N.N  Lock_time: N.N Rows_sent: N  Rows_examined: N
+  SET timestamp=N;
+  SHOW GLOBAL STATUS
+
+[(2) TOP 5 Query AVG ]
+
+Count: 4  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=354.0 (1416), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  # Time: N-N-12T05:N:N.413626Z
+  # User@Host: isucon[isucon] @ localhost [N.N.N.N]  Id:   N
+  # Query_time: N.N  Lock_time: N.N Rows_sent: N  Rows_examined: N
+  SET timestamp=N;
+  SHOW GLOBAL STATUS
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 4  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=354.0 (1416), isucon[isucon]@localhost
+  SHOW GLOBAL STATUS
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  # Time: N-N-12T05:N:N.413626Z
+  # User@Host: isucon[isucon] @ localhost [N.N.N.N]  Id:   N
+  # Query_time: N.N  Lock_time: N.N Rows_sent: N  Rows_examined: N
+  SET timestamp=N;
+  SHOW GLOBAL STATUS
+
+
+
+
