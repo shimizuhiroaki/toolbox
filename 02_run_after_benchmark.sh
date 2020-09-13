@@ -62,8 +62,7 @@ function analytics_db_access() {
 
 function send_data(){
 expect -c "
-#spawn scp ${TARGET_WEB_FILE} ${TARGET_DB_FILE} ${USER}@${HOST}:${TARGET_DIR}
-spawn scp ${TARGET_WEB_FILE} ${USER}@${HOST}:${TARGET_DIR}
+spawn scp ${TARGET_WEB_FILE} ${TARGET_DB_FILE} ${USER}@${HOST}:${TARGET_DIR}
 expect {
 \"Are you sure you want to continue connecting (yes/no)? \" {
 send \"yes\r\"
