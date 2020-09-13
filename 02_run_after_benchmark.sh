@@ -17,27 +17,27 @@ MARGE_URL="-m /api/chair/[0-9]+","/api/estate/[0-9]+","/api/chair/buy/[0-9]+","/
 ############################################
 
 function delete_data() {
-        rm ${TARGET_WEB_FILE} \ echo "" > $WEB_ALP_LOG
-        rm ${TARGET_DB_FILE}  \ echo "" > $DB_SLOW_LOG
+        rm ${TARGET_WEB_FILE} ; echo "" > $WEB_ALP_LOG
+        rm ${TARGET_DB_FILE}  ; echo "" > $DB_SLOW_LOG
 }
 
 function analytics_web_access() {
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALB_LOG | alp ltsv --sort=count --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (2) TOP10 SUM ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALB_LOG | alp ltsv --sort=sum --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=sum --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (3) TOP10 AVG ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALB_LOG | alp ltsv --sort=avg --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=avg --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (4) ALL LOGS ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALB_LOG | alp ltsv --sort=count --reverse --query-string >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse --query-string >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	cat $TARGET_WEB_FILE.$DATE > $TARGET_WEB_FILE
