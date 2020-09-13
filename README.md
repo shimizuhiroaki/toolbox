@@ -1,4 +1,4 @@
-# toolbox test
+# how to use
 
 ```bash
 # apt install git
@@ -6,4 +6,5 @@
 # git clone https://github.com/shimizuhiroaki/toolbox.git
 # cd toolbox
 # ./00_first_run.sh
+# ./01_second_kernel_tuning.sh
 ```
