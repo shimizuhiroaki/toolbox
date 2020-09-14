@@ -22,6 +22,7 @@ function delete_data() {
 }
 
 function analytics_web_alp() {
+	echo -e "========== alp ==========\\n" >> $TARGET_DB_FILE.$DATE
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
@@ -42,7 +43,7 @@ function analytics_web_alp() {
 }
 
 function analytics_db_mysqldumpslow() {
-	echo -e "<h2>mysqldumpslow</h2>"
+	echo -e "========== mysqldumpslow ==========\\n" >> $TARGET_DB_FILE.$DATE
 	echo -e "[ DB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_DB_FILE.$DATE
 
 	echo -e "[(1) Top 5 Query Time ]\\n" >> $TARGET_DB_FILE.$DATE
@@ -59,15 +60,8 @@ function analytics_db_mysqldumpslow() {
 
 
 function analytics_db_pt() {
-	echo -e "<h2>pt-query-digest</h2>"
-	$RESULT=`pt-query-digest $DB_SLOW_LOG`
-	cat $RESULT >> $TARGET_DB_FILE.$DATE
-	QUERYES=`cat $RESULT | grep -n -A1 "# EXPLAIN " | egrep -v "# EXPLAIN|--"`
-	for QUERY in $QUERYES
-	do
-		echo $QUERY
-	done
-	
+	echo -e "========== pt-query-digest ==========\\n" >> $TARGET_DB_FILE.$DATE
+	pt-query-digest $DB_SLOW_LOG >> $TARGET_DB_FILE.$DATE
 }
 
 function send_data(){
@@ -100,10 +94,10 @@ fi
 analytics_web_alp
 analytics_db_mysqldumpslow 
 analytics_db_pt
-send_data
 
 cat $TARGET_WEB_FILE.$DATE > $TARGET_WEB_FILE
 cat $TARGET_DB_FILE.$DATE > $TARGET_DB_FILE
+send_data
 
 delete_data
 
