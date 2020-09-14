@@ -21,10 +21,12 @@ wget -d https://github.com/tkuchiki/alp/releases/download/v1.0.3/alp_linux_amd64
 unzip alp_linux_amd64.zip
 mv alp /usr/local/bin/
 
-### Install Mysql ###
+### Install Mysql Tools ###
 echo "install percona"
 apt install percona-toolkit
 
+echo "install mysqltuner"
+apt install mysqltuner
 
 ### disable unneed processes ###
 #systemctl disable iscsid
