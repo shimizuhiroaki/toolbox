@@ -21,7 +21,7 @@ function delete_data() {
         rm ${TARGET_DB_FILE}  ; echo "" > $DB_SLOW_LOG
 }
 
-function analytics_web_access() {
+function analytics_web_alp() {
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
@@ -39,11 +39,10 @@ function analytics_web_access() {
 	echo -e "[ (4) ALL LOGS ]\\n" >> $TARGET_WEB_FILE.$DATE
 	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse --query-string >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
-
-	cat $TARGET_WEB_FILE.$DATE > $TARGET_WEB_FILE
 }
 
-function analytics_db_access() {
+function analytics_db_mysqldumpslow() {
+	echo -e "<h2>mysqldumpslow</h2>"
 	echo -e "[ DB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_DB_FILE.$DATE
 
 	echo -e "[(1) Top 5 Query Time ]\\n" >> $TARGET_DB_FILE.$DATE
@@ -56,8 +55,19 @@ function analytics_db_access() {
 	echo -e "[(3) TOP 5 Query Count ]\\n" >> $TARGET_DB_FILE.$DATE
 	/usr/bin/mysqldumpslow -s c $DB_SLOW_LOG | head -n 15 >> $TARGET_DB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_DB_FILE.$DATE
+}
 
-	cat $TARGET_DB_FILE.$DATE > $TARGET_DB_FILE
+
+function analytics_db_pt() {
+	echo -e "<h2>pt-query-digest</h2>"
+	$RESULT=`pt-query-digest $DB_SLOW_LOG`
+	cat $RESULT >> $TARGET_DB_FILE.$DATE
+	QUERYES=`cat $RESULT | grep -n -A1 "# EXPLAIN " | egrep -v "# EXPLAIN|--"`
+	for QUERY in $QUERYES
+	do
+		echo $QUERY
+	done
+	
 }
 
 function send_data(){
@@ -87,9 +97,13 @@ if [ ! -e $SCRIPT_TMP_DIR ]; then
         mkdir $SCRIPT_TMP_DIR
 fi
 
-analytics_web_access
-analytics_db_access 
+analytics_web_alp
+analytics_db_mysqldumpslow 
+analytics_db_pt
 send_data
+
+cat $TARGET_WEB_FILE.$DATE > $TARGET_WEB_FILE
+cat $TARGET_DB_FILE.$DATE > $TARGET_DB_FILE
 
 delete_data
 
