@@ -1,22 +1,30 @@
 #!/bin/bash
 
 ### install needs ###
+echo "Install standard Tools"
 apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils vim telnet
 
 ### Vim ###
-if [ -e /etc/vim/vimrc.local ]; then
-    :
-else
-    cp vim/vimrc.local /etc/vim/
-    update-alternatives --config editor
-fi
+VIM_FILE=/etc/vim/vimrc.local
+echo "Set Vim Setting"
+echo "syntax on" >> $VIM_FILE
+echo "set nobackup" >> $VIM_FILE
+echo "set fileencoding=japan" >> $VIM_FILE
+echo "set fileencodings=utf-8,iso-2022-jp,ucs2le,ucs-2,cp932" >> $VIM_FILE
+update-alternatives --config editor
 
 ### install alp ###
+echo "Install alp"
 cd /usr/local/src/
 #wget -d https://github.com/tkuchiki/alp/releases/download/v0.3.1/alp_linux_amd64.zip
 wget -d https://github.com/tkuchiki/alp/releases/download/v1.0.3/alp_linux_amd64.zip
 unzip alp_linux_amd64.zip
 mv alp /usr/local/bin/
+
+### Install Mysql ###
+echo "install percona"
+apt install percona-toolkit
+
 
 ### disable unneed processes ###
 #systemctl disable iscsid

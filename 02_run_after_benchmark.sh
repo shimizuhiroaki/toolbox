@@ -13,7 +13,7 @@ PASS=kiw0a-sal!lsq-QIKS!
 WEB_ALP_LOG=/var/log/nginx/access.log.alp
 DB_SLOW_LOG=/var/log/mysql/slow.log
 # Isucon 10
-MARGE_URL="-m /api/chair/[0-9]+","/api/estate/[0-9]+","/api/chair/buy/[0-9]+","/api/estate/req_doc/[0-9]+","/api/recommended_estate/[0-9]+"
+#MARGE_URL="-m /api/chair/[0-9]+","/api/estate/[0-9]+","/api/chair/buy/[0-9]+","/api/estate/req_doc/[0-9]+","/api/recommended_estate/[0-9]+"
 ############################################
 
 function delete_data() {
