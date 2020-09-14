@@ -97,6 +97,9 @@ analytics_db_pt
 
 cat $TARGET_WEB_FILE.$DATE > $TARGET_WEB_FILE
 cat $TARGET_DB_FILE.$DATE > $TARGET_DB_FILE
+nkf -s --overwrite $TARGET_WEB_FILE
+nkf -s --overwrite $TARGET_DB_FILE
+
 send_data
 
 delete_data
