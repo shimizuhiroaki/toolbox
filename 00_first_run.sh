@@ -4,6 +4,12 @@
 echo "Install standard Tools"
 apt install unzip htop expect git iftop iotop dstat lv net-tools arping nkf unzip dnsutils vim telnet
 
+### disable service ###
+echo "stop and disable apparmor"
+systemctl stop apparmor.service
+systemctl disable apparmor.service
+
+
 ### Vim ###
 VIM_FILE=/etc/vim/vimrc.local
 echo "Set Vim Setting"
