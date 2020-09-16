@@ -27,6 +27,11 @@ wget -d https://github.com/tkuchiki/alp/releases/download/v1.0.3/alp_linux_amd64
 unzip alp_linux_amd64.zip
 mv alp /usr/local/bin/
 
+### Install netdata ###
+apt install netdata
+sed -i -e "s/bind socket to IP = 127.0.0.1/bind socket to IP = 0.0.0.0/" /etc/netdata/netdata.conf
+systemctl restart netdata
+
 ### Install Mysql Tools ###
 echo "install percona"
 apt install percona-toolkit
