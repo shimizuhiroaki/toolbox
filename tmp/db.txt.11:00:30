@@ -1,0 +1,80 @@
+========== alp ==========
+
+========== mysqldumpslow ==========
+
+[ DB LOG -- 11:00:30(isucon7-1) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 790  Time=1.13s (890s)  Lock=0.00s (0s)  Rows=15.9 (12557), isucon[isucon]@localhost
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 6047  Time=0.01s (62s)  Lock=0.00s (0s)  Rows=1.0 (6047), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = N
+
+Count: 6175  Time=0.00s (5s)  Lock=0.00s (1s)  Rows=0.0 (143), isucon[isucon]@localhost
+  SELECT * FROM haveread WHERE user_id = N AND channel_id = N
+
+Count: 4671  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=1.0 (4671), isucon[isucon]@localhost
+  SELECT name, display_name, avatar_icon FROM user WHERE id = N
+
+Count: 59  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES (N, N, N, NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = N, updated_at = NOW()
+
+[(2) TOP 5 Query AVG ]
+
+Count: 796  Time=1.13s (900s)  Lock=0.00s (0s)  Rows=15.9 (12659), isucon[isucon]@localhost
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 15  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=11.3 (169), isucon[isucon]@localhost
+  SELECT * FROM message WHERE channel_id = N ORDER BY id DESC LIMIT N OFFSET N
+
+Count: 6  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO user (name, salt, password, display_name, avatar_icon, created_at) VALUES ('S', 'S', 'S', 'S', 'S', NOW())
+
+Count: 6050  Time=0.01s (63s)  Lock=0.00s (0s)  Rows=1.0 (6050), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = N
+
+Count: 59  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES (N, N, N, NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = N, updated_at = NOW()
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 6186  Time=0.00s (5s)  Lock=0.00s (1s)  Rows=0.0 (144), isucon[isucon]@localhost
+  SELECT * FROM haveread WHERE user_id = N AND channel_id = N
+
+Count: 6056  Time=0.01s (63s)  Lock=0.00s (0s)  Rows=1.0 (6056), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = N
+
+Count: 4671  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=1.0 (4671), isucon[isucon]@localhost
+  SELECT name, display_name, avatar_icon FROM user WHERE id = N
+
+Count: 1300  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  SET NAMES utf8mb4
+
+Count: 1300  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  SET SESSION sql_mode='S'
+
+
+
+
+========== pt-query-digest ==========
+
+
+# 3.5s user time, 40ms system time, 32.65M rss, 86.86M vsz
+# Current date: Sat Nov 14 11:00:36 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 3.6s user time, 40ms system time, 32.74M rss, 86.86M vsz
+# Current date: Sat Nov 14 11:00:36 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 3.6s user time, 40ms system time, 32.75M rss, 86.86M vsz
+# Current date: Sat Nov 14 11:00:36 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log

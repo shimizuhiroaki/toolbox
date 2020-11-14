@@ -22,7 +22,7 @@ function delete_data() {
 }
 
 function analytics_web_alp() {
-	echo -e "========== alp ==========\\n" >> $TARGET_DB_FILE.$DATE
+	echo -e "========== alp ==========\\n" >> $TARGET_WEB_FILE.$DATE
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
