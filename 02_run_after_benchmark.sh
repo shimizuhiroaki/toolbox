@@ -26,7 +26,7 @@ function analytics_web_alp() {
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse $MARGE_URL -m "/channel/.+" -m "/history/.+" -m "/profile/.+" | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (2) TOP10 SUM ]\\n" >> $TARGET_WEB_FILE.$DATE
