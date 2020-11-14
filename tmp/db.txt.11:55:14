@@ -1,0 +1,78 @@
+========== mysqldumpslow ==========
+
+[ DB LOG -- 11:55:14(isucon7-1) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 1849  Time=0.00s (4s)  Lock=0.00s (0s)  Rows=1.0 (1849), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 1867  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (18), isucon[isucon]@localhost
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 18  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=1.0 (18), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S' AND 'S' < id
+
+Count: 7  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@fp276e857c.stmb106.ap.nuro.jp
+  SELECT ROUTINE_NAME FROM information_schema.routines WHERE ROUTINE_SCHEMA = 'S' and ROUTINE_TYPE='S'
+
+Count: 18  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES ('S', 'S', 'S', NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = 'S', updated_at = NOW()
+
+[(2) TOP 5 Query AVG ]
+
+Count: 1  Time=0.01s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@fp276e857c.stmb106.ap.nuro.jp
+  SELECT TRIGGER_NAME FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'S'
+
+Count: 7  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@fp276e857c.stmb106.ap.nuro.jp
+  SELECT ROUTINE_NAME FROM information_schema.routines WHERE ROUTINE_SCHEMA = 'S' and ROUTINE_TYPE='S'
+
+Count: 18  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=1.0 (18), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S' AND 'S' < id
+
+Count: 1849  Time=0.00s (4s)  Lock=0.00s (0s)  Rows=1.0 (1849), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 18  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES ('S', 'S', 'S', NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = 'S', updated_at = NOW()
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 1867  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (18), isucon[isucon]@localhost
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 1849  Time=0.00s (4s)  Lock=0.00s (0s)  Rows=1.0 (1849), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 39  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.5 (19), isucon[isucon]@localhost
+  #
+
+Count: 39  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  administrator command: Quit
+
+Count: 38  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  SET SESSION sql_mode='S'
+
+
+
+
+========== pt-query-digest ==========
+
+
+# 770ms user time, 30ms system time, 28.97M rss, 83.12M vsz
+# Current date: Sat Nov 14 11:55:15 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 790ms user time, 30ms system time, 29.15M rss, 83.12M vsz
+# Current date: Sat Nov 14 11:55:15 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 820ms user time, 30ms system time, 29.15M rss, 83.12M vsz
+# Current date: Sat Nov 14 11:55:15 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log

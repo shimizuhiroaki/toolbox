@@ -1,0 +1,78 @@
+========== mysqldumpslow ==========
+
+[ DB LOG -- 14:41:21(isucon7-1) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 3565  Time=0.14s (497s)  Lock=0.00s (0s)  Rows=15.8 (56496), isucon[isucon]@2hosts
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 17544  Time=0.00s (32s)  Lock=0.00s (0s)  Rows=0.5 (9592), isucon[isucon]@2hosts
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 17667  Time=0.00s (2s)  Lock=0.00s (1s)  Rows=0.0 (165), isucon[isucon]@2hosts
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 14358  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.7 (10615), isucon[isucon]@2hosts
+  SELECT name, display_name, avatar_icon FROM user WHERE id = 'S'
+
+Count: 1  Time=0.57s (0s)  Lock=0.00s (0s)  Rows=25.0 (25), isucon[isucon]@isucon.akat.info
+  SELECT * FROM `image` LIMIT N, N
+
+[(2) TOP 5 Query AVG ]
+
+Count: 1  Time=0.57s (0s)  Lock=0.00s (0s)  Rows=25.0 (25), isucon[isucon]@isucon.akat.info
+  SELECT * FROM `image` LIMIT N, N
+
+Count: 3565  Time=0.14s (497s)  Lock=0.00s (0s)  Rows=15.8 (56496), isucon[isucon]@2hosts
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 1  Time=0.04s (0s)  Lock=0.05s (0s)  Rows=1.0 (1), debian-sys-maint[debian-sys-maint]@localhost
+  SELECT ENGINE,SUM(DATA_LENGTH+INDEX_LENGTH),COUNT(ENGINE),SUM(DATA_LENGTH),SUM(INDEX_LENGTH) FROM information_schema.TABLES WHERE TABLE_SCHEMA NOT IN ('S', 'S', 'S') AND ENGINE IS NOT NULL GROUP BY ENGINE ORDER BY ENGINE ASC
+
+Count: 1  Time=0.03s (0s)  Lock=0.00s (0s)  Rows=31.0 (31), debian-sys-maint[debian-sys-maint]@localhost
+  SHOW TABLE STATUS FROM `mysql`
+
+Count: 1  Time=0.02s (0s)  Lock=0.00s (0s)  Rows=100.0 (100), isucon[isucon]@fp276e857c.stmb106.ap.nuro.jp
+  SELECT id,cnt FROM channel
+  LEFT JOIN (
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 17667  Time=0.00s (2s)  Lock=0.00s (1s)  Rows=0.0 (165), isucon[isucon]@2hosts
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 17544  Time=0.00s (32s)  Lock=0.00s (0s)  Rows=0.5 (9592), isucon[isucon]@2hosts
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 14358  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.7 (10615), isucon[isucon]@2hosts
+  SELECT name, display_name, avatar_icon FROM user WHERE id = 'S'
+
+Count: 5908  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=12.3 (72760), 3users@4hosts
+  #
+
+Count: 5877  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  administrator command: Quit
+
+
+
+
+========== pt-query-digest ==========
+
+
+# 10.3s user time, 70ms system time, 43.04M rss, 97.43M vsz
+# Current date: Sat Nov 14 14:41:37 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 10.4s user time, 80ms system time, 43.16M rss, 97.43M vsz
+# Current date: Sat Nov 14 14:41:37 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 10.5s user time, 90ms system time, 43.17M rss, 97.43M vsz
+# Current date: Sat Nov 14 14:41:38 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log

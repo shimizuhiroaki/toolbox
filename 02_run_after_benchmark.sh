@@ -14,6 +14,11 @@ WEB_ALP_LOG=/var/log/nginx/access.log.alp
 DB_SLOW_LOG=/var/log/mysql/slow.log
 # Isucon 10
 #MARGE_URL="-m /api/chair/[0-9]+","/api/estate/[0-9]+","/api/chair/buy/[0-9]+","/api/estate/req_doc/[0-9]+","/api/recommended_estate/[0-9]+"
+MARGE_URL="-m /channel/.+","/history/.+","/profile/.+","/icons/.+"
+
+FILTER_OPTIONS="--filters"
+FILTER_URL="not(Uri matches 'fonts/.+|js/.+|/css/.+')"
+
 ############################################
 
 function delete_data() {
@@ -26,19 +31,19 @@ function analytics_web_alp() {
 	echo -e "[ WEB LOG -- $DATE($HOSTNAME) ]\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (1) TOP10 COUNT ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse $MARGE_URL -m "/channel/.+" -m "/history/.+" -m "/profile/.+" | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse $MARGE_URL $FILTER_OPTIONS "$FILTER_URL" | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (2) TOP10 SUM ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALP_LOG | alp ltsv --sort=sum --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=sum --reverse $MARGE_URL $FILTER_OPTIONS "$FILTER_URL" | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (3) TOP10 AVG ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALP_LOG | alp ltsv --sort=avg --reverse $MARGE_URL | head -n 13 >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=avg --reverse $MARGE_URL $FILTER_OPTIONS "$FILTER_URL" | head -n 13 >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 
 	echo -e "[ (4) ALL LOGS ]\\n" >> $TARGET_WEB_FILE.$DATE
-	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse --query-string >> $TARGET_WEB_FILE.$DATE
+	cat $WEB_ALP_LOG | alp ltsv --sort=count --reverse --query-string $FILTER_OPTIONS "$FILTER_URL" >> $TARGET_WEB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_WEB_FILE.$DATE
 }
 
@@ -49,8 +54,8 @@ function analytics_db_mysqldumpslow() {
 	echo -e "[(1) Top 5 Query Time ]\\n" >> $TARGET_DB_FILE.$DATE
 	/usr/bin/mysqldumpslow -s t $DB_SLOW_LOG | head -n 15 >> $TARGET_DB_FILE.$DATE
 
-	echo -e "[(2) TOP 5 Query AVG ]\\n" >> $TARGET_DB_FILE.$DATE
-	/usr/bin/mysqldumpslow -s at $DB_SLOW_LOG | head -n 15 >> $TARGET_DB_FILE.$DATE
+	echo -e "[(2) TOP 15 Query AVG ]\\n" >> $TARGET_DB_FILE.$DATE
+	/usr/bin/mysqldumpslow -s at $DB_SLOW_LOG | head -n 45 >> $TARGET_DB_FILE.$DATE
 	echo -e "\\n\\n" >> $TARGET_DB_FILE.$DATE
 
 	echo -e "[(3) TOP 5 Query Count ]\\n" >> $TARGET_DB_FILE.$DATE

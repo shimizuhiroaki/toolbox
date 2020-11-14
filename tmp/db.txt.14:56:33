@@ -1,0 +1,108 @@
+========== mysqldumpslow ==========
+
+[ DB LOG -- 14:56:33(isucon7-1) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 2532  Time=0.00s (11s)  Lock=0.00s (0s)  Rows=15.8 (40059), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 12300  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.0 (118), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 12206  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.3 (3603), isucon[isucon]@[127.0.0.1]
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 3269  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  SET SESSION sql_mode='S'
+
+Count: 6166  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.2 (992), isucon[isucon]@[127.0.0.1]
+  SELECT name, display_name, avatar_icon FROM user WHERE id = 'S'
+
+[(2) TOP 15 Query AVG ]
+
+Count: 2532  Time=0.00s (11s)  Lock=0.00s (0s)  Rows=15.8 (40059), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  DELETE FROM haveread
+
+Count: 9  Time=0.00s (0s)  Lock=0.01s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  INSERT INTO image (name, data) VALUES ('S', 'S')
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  DELETE FROM image WHERE id > N
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  DELETE FROM channel WHERE id > N
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  DELETE FROM message WHERE id > N
+
+Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  DELETE FROM user WHERE id > N
+
+Count: 27  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=7.7 (209), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM message WHERE channel_id = 'S' ORDER BY id DESC LIMIT N OFFSET N
+
+Count: 122  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES ('S', 'S', 'S', NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = 'S', updated_at = NOW()
+
+Count: 13  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  INSERT INTO user (name, salt, password, display_name, avatar_icon, created_at) VALUES ('S', 'S', 'S', 'S', 'S', NOW())
+
+Count: 122  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=9.5 (1165), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM message WHERE id > 'S' AND channel_id = 'S' ORDER BY id DESC LIMIT N
+
+Count: 9  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  UPDATE user SET avatar_icon = 'S' WHERE id = 'S'
+
+Count: 61  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  INSERT INTO message (channel_id, user_id, content, created_at) VALUES ('S', 'S', 'S', NOW())
+
+Count: 9  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  UPDATE user SET display_name = 'S' WHERE id = 'S'
+
+Count: 121  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.6 (72), isucon[isucon]@[127.0.0.1]
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S' AND 'S' < id
+
+
+
+
+[(3) TOP 5 Query Count ]
+
+Count: 12300  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.0 (118), isucon[isucon]@[127.0.0.1]
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 12206  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.3 (3603), isucon[isucon]@[127.0.0.1]
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 6166  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.2 (992), isucon[isucon]@[127.0.0.1]
+  SELECT name, display_name, avatar_icon FROM user WHERE id = 'S'
+
+Count: 3269  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@[127.0.0.1]
+  SET SESSION sql_mode='S'
+
+Count: 3266  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=12.4 (40407), isucon[isucon]@[127.0.0.1]
+  #
+
+
+
+
+========== pt-query-digest ==========
+
+
+# 6s user time, 40ms system time, 36.46M rss, 90.88M vsz
+# Current date: Sat Nov 14 14:56:42 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 6s user time, 40ms system time, 36.65M rss, 90.88M vsz
+# Current date: Sat Nov 14 14:56:42 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log
+
+# 6.1s user time, 40ms system time, 36.65M rss, 90.88M vsz
+# Current date: Sat Nov 14 14:56:43 2020
+# Hostname: isucon7-1
+# Files: /var/log/mysql/slow.log

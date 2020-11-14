@@ -1,0 +1,23 @@
+========== mysqldumpslow ==========
+
+[ DB LOG -- 12:28:15(isucon7-1) ]
+
+[(1) Top 5 Query Time ]
+
+Count: 1506  Time=0.32s (482s)  Lock=0.00s (0s)  Rows=15.9 (23921), isucon[isucon]@localhost
+  SELECT * FROM image WHERE name = 'S'
+
+Count: 7524  Time=0.00s (31s)  Lock=0.00s (0s)  Rows=1.0 (7524), isucon[isucon]@localhost
+  SELECT COUNT(*) as cnt FROM message WHERE channel_id = 'S'
+
+Count: 7567  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=0.0 (71), isucon[isucon]@localhost
+  SELECT * FROM haveread WHERE user_id = 'S' AND channel_id = 'S'
+
+Count: 9242  Time=0.00s (1s)  Lock=0.00s (0s)  Rows=1.0 (9242), isucon[isucon]@localhost
+  SELECT name, display_name, avatar_icon FROM user WHERE id = 'S'
+
+Count: 115  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), isucon[isucon]@localhost
+  INSERT INTO haveread (user_id, channel_id, message_id, updated_at, created_at) VALUES ('S', 'S', 'S', NOW(), NOW()) ON DUPLICATE KEY UPDATE message_id = 'S', updated_at = NOW()
+
+[(2) TOP 5 Query AVG ]
+
